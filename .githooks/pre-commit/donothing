@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# git hook to run the tests before `git commit`
+# Run `chmod +x pre-commit` to make it executable then put it into `.git/hooks/`.
+
+git log -1 HEAD
+exit 1

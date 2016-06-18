@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# git hook to run the tests before `git commit`
+# Run `chmod +x pre-commit` to make it executable then put it into `.git/hooks/`.
+
+git stash -q --keep-index
+gulp test
+RESULT=$?
+git stash pop -q
+[ $RESULT -ne 0 ] && exit 1
+exit 0
+
